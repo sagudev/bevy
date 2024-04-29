@@ -802,6 +802,7 @@ impl PipelineCache {
                         buffers: &vertex_buffer_layouts,
                         entry_point: descriptor.vertex.entry_point.deref(),
                         module: &vertex_module,
+                        compilation_options: Default::default(),
                     },
                     fragment: fragment_data
                         .as_ref()
@@ -809,6 +810,7 @@ impl PipelineCache {
                             entry_point,
                             module,
                             targets,
+                            compilation_options: Default::default(),
                         }),
                 };
 
@@ -861,6 +863,7 @@ impl PipelineCache {
                     layout: layout.as_deref(),
                     module: &compute_module,
                     entry_point: &descriptor.entry_point,
+                    compilation_options: Default::default(),
                 };
 
                 Ok(Pipeline::ComputePipeline(
